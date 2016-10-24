@@ -84,11 +84,15 @@ public class jugador {
 
     @Override
     public String toString() {
-        return "Jugador{" + " Id: " + id + " nombre: "
-                + nombre + " apellido: " + apellido +
-                " canastas: " + canastas + " asistencias: "
-                + asistencias + " posicion: " + asistencias +
-                " rebotes: " + rebotes + " cumpleaños: " + cumpleaños +
-                "}";
+        return "jugador{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", canastas=" + canastas +
+                ", asistencias=" + asistencias +
+                ", posicion='" + posicion + '\'' +
+                ", rebotes=" + rebotes +
+                ", cumpleaños=" + cumpleaños +
+                '}';
     }
 }
