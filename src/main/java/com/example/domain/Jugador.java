@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import java.time.LocalDate;
 
 @Entity
-public class jugador {
+public class Jugador {
     //Es como la clase Car del ejemplo de alfredo
     @Id
     private long id;
@@ -84,7 +84,7 @@ public class jugador {
 
     @Override
     public String toString() {
-        return "jugador{" +
+        return "Jugador{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
