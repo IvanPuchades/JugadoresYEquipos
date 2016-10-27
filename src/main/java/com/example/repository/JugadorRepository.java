@@ -10,6 +10,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 //hacemos el Extends con el repositorio "Default" de Spring
 public interface JugadorRepository extends JpaRepository<Jugador, Long>{
 
-
+//asasd
 
 }
