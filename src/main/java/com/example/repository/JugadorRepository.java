@@ -15,15 +15,8 @@ import java.time.LocalDate;
 //hacemos el Extends con el repositorio "Default" de Spring
 public interface JugadorRepository extends JpaRepository<Jugador, Long>{
 
-    public List<Jugador> findByNombreContaining(String nombre);
-
-
     //Buscar Jugadores por nombre de manera que no sea necesario introducir el nombre completo
-    @Query("SELECT jugador FROM Jugador jugador WHERE jugador.nombre like 'nombre'")
-    List<Jugador> findJugadorByNombre(
-            @Param("nombre") Jugador nombre,
-            @Param("apellido") Jugador apellido
-    );
+    List<Jugador> findByNombreContaining(String nombre);
 
     //Buscar jugadores que hayan conseguido un numero mayor o igual a un numero de canastas especificado como parametro
     @Query("SELECT jugador FROM Jugador jugador WHERE jugador.canastas > 8")
