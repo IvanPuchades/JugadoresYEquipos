@@ -1,4 +1,4 @@
-package com.example.service;
+package com.example.services;
 
 import com.example.domain.Jugador;
 import com.example.repository.EquipoRepository;
@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
+
 
 /**
  * Created by dam on 21/10/16.
@@ -14,10 +16,10 @@ import java.time.LocalDate;
 @Service
 public class jugadorServices {
 
-
+    @Autowired
     private EquipoRepository EquipoRepository;
 
-
+    @Autowired
     private JugadorRepository JugadorRepository;
 
 
@@ -30,7 +32,9 @@ public class jugadorServices {
         jugador1.setAsistencias(7);
         jugador1.setPosicion("Pivote");
         jugador1.setRebotes(8);
-        jugador1.setCumpleaños(LocalDate.of(1995,29,11));
+        jugador1.setCumpleaños(LocalDate.of(1995,11,29));
+        jugador1.setEquipo(EquipoRepository.findOne);
+
         JugadorRepository.save(jugador1);
 
 
@@ -68,13 +72,18 @@ public class jugadorServices {
 
 
         Jugador jugador5 = new Jugador();
-        jugador5.setNombre("Jordi");
-        jugador5.setApellido("Batalla");
+        jugador5.setNombre("Sergi");
+        jugador5.setApellido("Tennosuke");
         jugador5.setCanastas(14);
         jugador5.setAsistencias(12);
         jugador5.setPosicion("Lateral");
         jugador5.setRebotes(15);
         jugador5.setCumpleaños(LocalDate.of(1997,6,9));
         JugadorRepository.save(jugador5);
+
+
+        List<Object[]> estadisticasPosicion  = JugadorRepository.AVGCanastasANDAsistenciasANDRebotes();
+
+
     }
 }

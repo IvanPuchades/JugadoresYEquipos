@@ -1,12 +1,13 @@
 package com.example.repository;
 
 import com.example.domain.Jugador;
-import com.sun.tools.javac.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Created by usu32 on 24/10/2016.
@@ -41,16 +42,24 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long>{
     );
 
     //Buscar jugadores que hayan nacido en una fecha anterior a una fecha especificada como parametro
-    List<Jugador> findByCumpleañosAfter(LocalDate localDate);
+    List<Jugador> findByCumpleañosBefore(LocalDate localDate);
 
     //Agrupar los jugadores por la posicion del campo y devolver para cada grupo la siguiente información: la media de canastas, asistencias y rebotes
-    @Query("SELECT AVG(jugador.canastas), AVG(jugador.asistencias), AVG(jugador.rebotes)" +
+    @Query("SELECT jugador.posicion, AVG(jugador.canastas), AVG(jugador.asistencias), AVG(jugador.rebotes)" +
             "FROM Jugador jugador " +
             "GROUP BY jugador.posicion")
     List<Object[]> AVGCanastasANDAsistenciasANDRebotes();
 
 
-    //
+    //Lo mismo que en el punto anterior pero devolviendo la media, el máximo y el mínimo de canastas, asistencias y rebotes
+
+    @Query("SELECT jugador.posicion, AVG(jugador.canastas), MIN(jugador.canastas), MAX(jugador.canastas), " +
+            "AVG(jugador.asistencias), MIN(jugador.asistencias), MAX(jugador.asistencias)," +
+            "AVG(jugador.rebotes), MIN(jugador.rebotes), MAX(jugador.rebotes) " +
+            "FROM Jugador jugador " +
+            "GROUP BY jugador.posicion ")
+
+    List<Object[]> AvgMinANDMaxOfCanastasANDAsistenciasANDRebotes();
 
 
 }

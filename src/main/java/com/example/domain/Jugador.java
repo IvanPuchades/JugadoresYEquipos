@@ -1,14 +1,14 @@
 package com.example.domain;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 public class Jugador {
     //Es como la clase Car del ejemplo de alfredo
     @Id
+    @GeneratedValue
     private long id;
     private String nombre;
     private String apellido;
@@ -17,6 +17,16 @@ public class Jugador {
     private String posicion;
     private int rebotes;
     private LocalDate cumpleaños;
+    @ManyToOne
+    private Equipo equipo;
+
+    public Equipo getEquipo() {
+        return equipo;
+    }
+
+    public void setEquipo(Equipo equipo) {
+        this.equipo = equipo;
+    }
 
     public long getId() {
         return id;
