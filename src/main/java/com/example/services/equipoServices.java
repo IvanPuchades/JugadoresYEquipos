@@ -22,8 +22,6 @@ public class equipoServices {
         equipo1.setNombre("F.C.Barcelona");
         equipo1.setLocalidad("Barcelona");
         equipo1.setCreacion(LocalDate.of(1899,11,29));
-
-
         EquipoRepository.save(equipo1);
 
         Equipo equipo2 = new Equipo();
@@ -40,7 +38,7 @@ public class equipoServices {
 
         Equipo equipo4 = new Equipo();
         equipo3.setNombre("Atleti");
-        equipo3.setLocalidad("Atleti");
+        equipo3.setLocalidad("Ciudad Atletic");
         equipo3.setCreacion(LocalDate.of(1919,3,18));
         EquipoRepository.save(equipo3);
 
@@ -50,11 +48,6 @@ public class equipoServices {
         equipo3.setCreacion(LocalDate.of(1919,3,18));
         EquipoRepository.save(equipo3);
 
-        Equipo equipo6 = new Equipo();
-        equipo3.setNombre("Valencia");
-        equipo3.setLocalidad("Ciudad de Valencia");
-        equipo3.setCreacion(LocalDate.of(1919,3,18));
-        EquipoRepository.save(equipo3);
 
 
     }

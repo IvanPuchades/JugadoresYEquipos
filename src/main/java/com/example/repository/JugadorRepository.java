@@ -1,5 +1,6 @@
 package com.example.repository;
 
+import com.example.domain.Equipo;
 import com.example.domain.Jugador;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,6 +16,9 @@ import java.util.List;
 
 //hacemos el Extends con el repositorio "Default" de Spring
 public interface JugadorRepository extends JpaRepository<Jugador, Long>{
+
+    List<Jugador>  findByEquipo(Equipo equipo);
+    List<Jugador>  findByEquipoNombre(String equipo);
 
     //Buscar Jugadores por nombre de manera que no sea necesario introducir el nombre completo
     List<Jugador> findByNombreContaining(String nombre);
@@ -60,6 +64,24 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long>{
             "GROUP BY jugador.posicion ")
 
     List<Object[]> AvgMinANDMaxOfCanastasANDAsistenciasANDRebotes();
+
+    //Devuelve todos los jugadores de un equipo, a partir del nombre completo del equipo
+
+    @Query("SELECT jugador.nombre FROM Jugador jugador " +
+            "GROUP BY jugador.equipo")
+    List<Object[]> JugadoresPorEquipo();
+
+    //Devuelve todos los jugadores de un equipo, que ademas jueguen en la misma posicion
+//(Parametro adicional de la consulta), por ejemplo, alero.
+    @Query("SELECT jugador.nombre FROM Jugador jugador " +
+            "WHERE jugador.posicion =:alero " +
+            "GROUP BY jugador.equipo")
+    List<Object[]> JugadoresPosicionPorEquipo();
+
+    //Devuelve el jugador que mas canastas ha realizado de un equipo determinado como parametro.
+    @Query("SELECT jugador.nombre, MAX(jugador.canastas) FROM Jugador jugador" +
+            " GROUP BY jugador.equipo")
+    List<Object[]> JugadorMaxCanastasPorEquipo();
 
 
 }

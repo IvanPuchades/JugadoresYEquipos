@@ -17,7 +17,7 @@ public class Jugador {
     private String posicion;
     private int rebotes;
     private LocalDate cumpleaños;
-    @ManyToOne
+    @ManyToOne //Un jugador solo puede pertenecer a un equipo
     private Equipo equipo;
 
     public Equipo getEquipo() {

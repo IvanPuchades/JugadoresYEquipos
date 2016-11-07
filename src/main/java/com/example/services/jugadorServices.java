@@ -33,7 +33,7 @@ public class jugadorServices {
         jugador1.setPosicion("Pivote");
         jugador1.setRebotes(8);
         jugador1.setCumpleaños(LocalDate.of(1995,11,29));
-        jugador1.setEquipo(EquipoRepository.findOne);
+        jugador1.setEquipo(EquipoRepository.findOne(1L));
 
         JugadorRepository.save(jugador1);
 
