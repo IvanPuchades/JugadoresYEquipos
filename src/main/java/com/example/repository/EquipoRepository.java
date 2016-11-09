@@ -14,8 +14,6 @@ public interface EquipoRepository extends JpaRepository<Equipo, Long>
     //Consulta los equipos existentes en una localidad determinada
     List<Equipo> findByLocalidad(@Param("localidad") String localidad);
 
-    //Devuelve todos los jugadores de un equipo, a partir del nombre completo del equipo.
-
 
 
 
