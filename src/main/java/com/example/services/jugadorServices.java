@@ -116,16 +116,16 @@ public class jugadorServices {
         //Apartado de Equipos
 
         //Devolvemos todos los jugadores del equipo de Madrid
-        System.out.println("Mostramos los jugadores del equipo del Madrid");
-        System.out.println(JugadorRepository.findByEquipoNombre("Madrid"));
+ //       System.out.println("Mostramos los jugadores del equipo del Madrid");
+ //       System.out.println(JugadorRepository.findByEquipoNombre("Madrid"));
 
-        //Devolvemos todos los jugadores del equipo Sevilla que jueguen en la misma posicion, como base
+        //Devolvemos todos los jugadores del equipo Sevilla que jueguen en la misma posicion, como alero
         System.out.println("Devolvemos todos los jugadores del equipo Sevilla que jueguen en la misma posicion, como alero");
-        System.out.println(JugadorRepository.JugadoresPosicionPorEquipo());
+        System.out.println(JugadorRepository.JugadoresPosicionPorEquipo("alero"));
 
         //Devolvemos el jugador que mas canastas ha realizado de el Equipo Sevilla
-        System.out.println("Devolvemos el jugador que mas canastas ha realizado de el Equipo Sevilla");
-        System.out.println(JugadorRepository.JugadorMaxCanastasPorEquipo("Sevilla"));
+ //       System.out.println("Devolvemos el jugador que mas canastas ha realizado de el Equipo Sevilla");
+ //       System.out.println(JugadorRepository.JugadorMaxCanastasPorEquipo("Sevilla"));
 
     }
 }
