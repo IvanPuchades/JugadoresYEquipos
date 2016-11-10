@@ -24,7 +24,7 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long>{
     List<Jugador> findByNombreContaining(String nombre);
 
     //Buscar jugadores que hayan conseguido un numero mayor o igual a un numero de canastas especificado como parametro
-    @Query("SELECT jugador FROM Jugador jugador WHERE jugador.canastas > 8")
+    @Query("SELECT jugador FROM Jugador jugador WHERE jugador.canastas > 7")
     List<Jugador> findJugadorByCanastasGreaterThan(
             @Param("canastas") int canastas
     );
@@ -42,7 +42,7 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long>{
     //Buscar jugadores que pertenezcan a una posicion especifica, por ejemplo: base
     @Query("SELECT jugador FROM Jugador jugador WHERE jugador.posicion like 'base'")
     List<Jugador> FindJugadorByPosicion(
-            @Param("posicion") Jugador posicion
+            @Param("posicion") String posicion
     );
 
     //Buscar jugadores que hayan nacido en una fecha anterior a una fecha especificada como parametro
@@ -85,7 +85,7 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long>{
     //Devuelve el jugador que mas canastas ha realizado de un equipo determinado como parametro.
     @Query("SELECT jugador.nombre, MAX(jugador.canastas) FROM Jugador jugador" +
             " GROUP BY jugador.equipo")
-    List<Object[]> JugadorMaxCanastasPorEquipo();
+    List<Object[]> JugadorMaxCanastasPorEquipo(@Param("equipo") String equipo);
 
 
 }

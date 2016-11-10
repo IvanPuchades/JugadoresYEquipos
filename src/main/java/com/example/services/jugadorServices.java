@@ -67,7 +67,7 @@ public class jugadorServices {
         jugador4.setApellido("Batalla");
         jugador4.setCanastas(14);
         jugador4.setAsistencias(12);
-        jugador4.setPosicion("Lateral");
+        jugador4.setPosicion("Base");
         jugador4.setRebotes(15);
         jugador4.setCumpleaños(LocalDate.of(1995,12,12));
         jugador4.setEquipo(EquipoRepository.findOne(4L));
@@ -79,7 +79,7 @@ public class jugadorServices {
         jugador5.setApellido("Tennosuke");
         jugador5.setCanastas(14);
         jugador5.setAsistencias(12);
-        jugador5.setPosicion("Lateral");
+        jugador5.setPosicion("Base");
         jugador5.setRebotes(15);
         jugador5.setCumpleaños(LocalDate.of(1997,6,9));
         jugador5.setEquipo(EquipoRepository.findOne(5L));
@@ -91,8 +91,41 @@ public class jugadorServices {
 
         //Busquedas de canastas mayores o iguales a un numero
         System.out.println("Buscamos una cantidad de canastas mayores o igual a 7" );
+        System.out.println(JugadorRepository.findJugadorByCanastasGreaterThan(7));
 
+        //Busquedas de jugadores con un numero de asistencia de entre 5 y 10
+        System.out.println("Buscamos jugadores con un numero de asistencias de entre 5 y 10");
+        System.out.println(JugadorRepository.findByAsistenciasBetween(5,10));
 
+        //Busquedas de jugadores que pertenezcan a la posicion base
+        System.out.println("Buscamos jugadores que pertenezcan a la posicion Base");
+        System.out.println(JugadorRepository.FindJugadorByPosicion("Base"));
+
+        //Busquedas dejugadores que hayan nacido antes del 1 / 1 / 1996
+        System.out.println("Buscamos jugadores cuya fecha de nacimiento sea anterior al 1/1/1996");
+        System.out.println(JugadorRepository.findByCumpleañosBefore(LocalDate.of(1996,1,1)));
+
+        //Obtener la media de canastas de asistencias y rebotes agrupado a los jugadores por posicion
+        System.out.println("Agrupamos jugadores por la posicion devolviendo la media de canastas, asistencias y rebotes");
+        System.out.println(JugadorRepository.AVGCanastasANDAsistenciasANDRebotes());
+
+        //Igual que antes pero devolviendo la media el maximo y el minimo de canastas asistencias y rebotes
+        System.out.println("Como el anterior pero devolviendo la media el maximo y el minimo de canastas asistencias y rebotes");
+        System.out.println(JugadorRepository.AvgMinANDMaxOfCanastasANDAsistenciasANDRebotes());
+
+        //Apartado de Equipos
+
+        //Devolvemos todos los jugadores del equipo de Madrid
+        System.out.println("Mostramos los jugadores del equipo del Madrid");
+        System.out.println(JugadorRepository.findByEquipoNombre("Madrid"));
+
+        //Devolvemos todos los jugadores del equipo Sevilla que jueguen en la misma posicion, como base
+        System.out.println("Devolvemos todos los jugadores del equipo Sevilla que jueguen en la misma posicion, como alero");
+        System.out.println(JugadorRepository.JugadoresPosicionPorEquipo());
+
+        //Devolvemos el jugador que mas canastas ha realizado de el Equipo Sevilla
+        System.out.println("Devolvemos el jugador que mas canastas ha realizado de el Equipo Sevilla");
+        System.out.println(JugadorRepository.JugadorMaxCanastasPorEquipo("Sevilla"));
 
     }
 }

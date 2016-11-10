@@ -49,7 +49,9 @@ public class equipoServices {
         EquipoRepository.save(equipo5);
 
 
-        System.out.println();
+        //Consultamos los equipos existentes en la localidad de Barcelona
+        System.out.println("Consultamos los equipos existentes en la localidad de Barcelona");
+        System.out.println(EquipoRepository.findByLocalidad("Barcelona"));
 
 
     }
