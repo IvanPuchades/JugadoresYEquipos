@@ -76,7 +76,7 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long>{
     List<Object[]> JugadoresPorEquipo();
 
     //Devuelve todos los jugadores de un equipo, que ademas jueguen en la misma posicion
-//(Parametro adicional de la consulta), por ejemplo, alero.
+    //(Parametro adicional de la consulta), por ejemplo, alero.
     @Query("SELECT jugador.nombre FROM Jugador jugador " +
             "WHERE jugador.posicion =:alero " +
             "GROUP BY jugador.equipo")
