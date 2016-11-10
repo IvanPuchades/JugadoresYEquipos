@@ -46,6 +46,7 @@ public class jugadorServices {
         jugador2.setPosicion("Centro");
         jugador2.setRebotes(9);
         jugador2.setCumpleaños(LocalDate.of(1996,2,5));
+        jugador2.setEquipo(EquipoRepository.findOne(2L));
         JugadorRepository.save(jugador2);
 
 
@@ -57,6 +58,7 @@ public class jugadorServices {
         jugador3.setPosicion("Lateral");
         jugador3.setRebotes(22);
         jugador3.setCumpleaños(LocalDate.of(1997,4,2));
+        jugador3.setEquipo(EquipoRepository.findOne(3L));
         JugadorRepository.save(jugador3);
 
 
@@ -68,6 +70,7 @@ public class jugadorServices {
         jugador4.setPosicion("Lateral");
         jugador4.setRebotes(15);
         jugador4.setCumpleaños(LocalDate.of(1995,12,12));
+        jugador4.setEquipo(EquipoRepository.findOne(4L));
         JugadorRepository.save(jugador4);
 
 
@@ -79,10 +82,16 @@ public class jugadorServices {
         jugador5.setPosicion("Lateral");
         jugador5.setRebotes(15);
         jugador5.setCumpleaños(LocalDate.of(1997,6,9));
+        jugador5.setEquipo(EquipoRepository.findOne(5L));
         JugadorRepository.save(jugador5);
 
+        //Busquedas por nombres de jugadores
+        System.out.println("Buscamos los jugadores por nombre");
+        System.out.println(JugadorRepository.findByNombreContaining("Ivan"));
 
-        List<Object[]> estadisticasPosicion  = JugadorRepository.AVGCanastasANDAsistenciasANDRebotes();
+        //Busquedas de canastas mayores o iguales a un numero
+        System.out.println("Buscamos una cantidad de canastas mayores o igual a 7" );
+
 
 
     }

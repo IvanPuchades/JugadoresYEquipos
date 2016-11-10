@@ -65,6 +65,10 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long>{
 
     List<Object[]> AvgMinANDMaxOfCanastasANDAsistenciasANDRebotes();
 
+
+
+    //Aqui empieza el apartado de Querys de Equipo
+
     //Devuelve todos los jugadores de un equipo, a partir del nombre completo del equipo
 
     @Query("SELECT jugador.nombre FROM Jugador jugador " +

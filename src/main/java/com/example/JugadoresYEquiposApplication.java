@@ -11,7 +11,8 @@ public class JugadoresYEquiposApplication {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(JugadoresYEquiposApplication.class, args);
-		context.getBean(jugadorServices.class).testJugador();
 		context.getBean(equipoServices.class).testEquipos();
+		context.getBean(jugadorServices.class).testJugador();
+
 	}
 }

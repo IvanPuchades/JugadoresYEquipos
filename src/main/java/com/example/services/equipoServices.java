@@ -37,17 +37,19 @@ public class equipoServices {
         EquipoRepository.save(equipo3);
 
         Equipo equipo4 = new Equipo();
-        equipo3.setNombre("Atleti");
-        equipo3.setLocalidad("Ciudad Atletic");
-        equipo3.setCreacion(LocalDate.of(1919,3,18));
-        EquipoRepository.save(equipo3);
+        equipo4.setNombre("Atleti");
+        equipo4.setLocalidad("Ciudad Atletic");
+        equipo4.setCreacion(LocalDate.of(1919,3,18));
+        EquipoRepository.save(equipo4);
 
         Equipo equipo5 = new Equipo();
-        equipo3.setNombre("Valencia");
-        equipo3.setLocalidad("Ciudad de Valencia");
-        equipo3.setCreacion(LocalDate.of(1919,3,18));
-        EquipoRepository.save(equipo3);
+        equipo5.setNombre("Sevilla");
+        equipo5.setLocalidad("Ciudad de Sevilla");
+        equipo5.setCreacion(LocalDate.of(1919,3,18));
+        EquipoRepository.save(equipo5);
 
+
+        System.out.println();
 
 
     }

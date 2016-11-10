@@ -1,12 +1,14 @@
 package com.example.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalDate;
 
 @Entity
 public class Equipo {
     @Id
+    @GeneratedValue
     private long id;
     private String nombre;
     private String localidad;
