@@ -71,8 +71,8 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long>{
 
     //Devuelve todos los jugadores de un equipo, a partir del nombre completo del equipo
 
-    @Query("SELECT jugador.nombre FROM Jugador jugador " +
-            "GROUP BY jugador.equipo")
+    @Query("SELECT jugador.nombre FROM Jugador jugador where jugador.equipo =:equipo" +
+            " GROUP BY jugador.equipo")
     List<Object[]> JugadoresPorEquipo();
 
     //Devuelve todos los jugadores de un equipo, que ademas jueguen en la misma posicion
@@ -83,8 +83,9 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long>{
     List<Object[]> JugadoresPosicionPorEquipo( @Param("posicion") String posicion);
 
     //Devuelve el jugador que mas canastas ha realizado de un equipo determinado como parametro.
-    @Query("SELECT jugador.nombre, MAX(jugador.canastas) FROM Jugador jugador" +
-            " GROUP BY jugador.equipo")
+    @Query("SELECT jugador.nombre, MAX(jugador.canastas) FROM Jugador jugador " +
+            "WHERE jugador.equipo.nombre =:equipo " +
+            "GROUP BY jugador.equipo")
     List<Object[]> JugadorMaxCanastasPorEquipo(@Param("equipo") String equipo);
 
 
