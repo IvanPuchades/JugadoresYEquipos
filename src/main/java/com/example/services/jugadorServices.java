@@ -107,11 +107,11 @@ public class jugadorServices {
 
         //Obtener la media de canastas de asistencias y rebotes agrupado a los jugadores por posicion
         System.out.println("Agrupamos jugadores por la posicion devolviendo la media de canastas, asistencias y rebotes");
-        System.out.println(JugadorRepository.AVGCanastasANDAsistenciasANDRebotes());
+        AVGCanastasANDAsistenciasANDRebotes(JugadorRepository.AVGCanastasANDAsistenciasANDRebotes());
 
         //Igual que antes pero devolviendo la media el maximo y el minimo de canastas asistencias y rebotes
         System.out.println("Como el anterior pero devolviendo la media el maximo y el minimo de canastas asistencias y rebotes");
-        System.out.println(JugadorRepository.AvgMinANDMaxOfCanastasANDAsistenciasANDRebotes());
+        AvgMinANDMaxOfCanastasANDAsistenciasANDRebotes(JugadorRepository.AvgMinANDMaxOfCanastasANDAsistenciasANDRebotes());
 
         //Apartado de Equipos
 
@@ -125,7 +125,46 @@ public class jugadorServices {
 
         //Devolvemos el jugador que mas canastas ha realizado de el Equipo Sevilla
         System.out.println("Devolvemos el jugador que mas canastas ha realizado de el Equipo Sevilla");
-        System.out.println(JugadorRepository.JugadorMaxCanastasPorEquipo("Sevilla"));
+        JugadorMaxCanastasPorEquipo(JugadorRepository.JugadorMaxCanastasPorEquipo("Sevilla"));
+
+    }
+
+    private void AVGCanastasANDAsistenciasANDRebotes(List<Object[]> statisticsList) {
+        for ( Object[] statistic: statisticsList)
+        {
+            System.out.println("Posición : "+statistic[0]);
+            System.out.println("Canastas AVG = "+statistic[1]);
+            System.out.println("Asistencias AVG = "+statistic[2]);
+            System.out.println("Rebotes AVG = "+statistic[3]+System.lineSeparator());
+        }
+    }
+
+    private void AvgMinANDMaxOfCanastasANDAsistenciasANDRebotes(List<Object[]> statisticsList) {
+        for ( Object[] statistic: statisticsList)
+        {
+            System.out.println("Canastas: "+statistic[0]);
+            System.out.println("AVG = "+statistic[1] );
+            System.out.println("MIN = "+statistic[2]);
+            System.out.println("MAX = "+statistic[3]+System.lineSeparator());
+            System.out.println("Asistencias: "+statistic[0]);
+            System.out.println("AVG = "+statistic[1] );
+            System.out.println("MIN = "+statistic[2]);
+            System.out.println("MAX = "+statistic[3]+System.lineSeparator());
+            System.out.println("Rebotes: "+statistic[0]);
+            System.out.println("AVG = "+statistic[1]);
+            System.out.println("MIN = "+statistic[2]);
+            System.out.println("MAX = "+statistic[3]+System.lineSeparator());
+        }
+
+    }
+
+    private void JugadorMaxCanastasPorEquipo(List<Object[]> statisticsList) {
+        for ( Object[] statistic: statisticsList)
+        {
+            System.out.println("Equipo: "+statistic[0]);
+            System.out.println("MAX = "+statistic[1]+System.lineSeparator());
+        }
+
 
     }
 }
