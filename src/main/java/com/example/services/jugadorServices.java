@@ -161,7 +161,7 @@ public class jugadorServices {
     private void JugadorMaxCanastasPorEquipo(List<Object[]> statisticsList) {
         for ( Object[] statistic: statisticsList)
         {
-            System.out.println("Equipo: "+statistic[0]);
+            System.out.println("Jugador: "+statistic[0]);
             System.out.println("MAX = "+statistic[1]+System.lineSeparator());
         }
 
