@@ -142,18 +142,16 @@ public class jugadorServices {
     private void AvgMinANDMaxOfCanastasANDAsistenciasANDRebotes(List<Object[]> statisticsList) {
         for ( Object[] statistic: statisticsList)
         {
-            System.out.println("Canastas: "+statistic[0]);
-            System.out.println("AVG = "+statistic[1] );
-            System.out.println("MIN = "+statistic[2]);
-            System.out.println("MAX = "+statistic[3]+System.lineSeparator());
-            System.out.println("Asistencias: "+statistic[0]);
-            System.out.println("AVG = "+statistic[1] );
-            System.out.println("MIN = "+statistic[2]);
-            System.out.println("MAX = "+statistic[3]+System.lineSeparator());
-            System.out.println("Rebotes: "+statistic[0]);
-            System.out.println("AVG = "+statistic[1]);
-            System.out.println("MIN = "+statistic[2]);
-            System.out.println("MAX = "+statistic[3]+System.lineSeparator());
+            System.out.println("Posicion: "+statistic[0]);
+            System.out.println("Canastas AVG = "+statistic[1] );
+            System.out.println("Canastas MIN = "+statistic[2]);
+            System.out.println("Canastas MAX = "+statistic[3]);
+            System.out.println("Asistencias AVG = "+statistic[4]);
+            System.out.println("Asistencias MIN = "+statistic[5] );
+            System.out.println("Asistencias MAX = "+statistic[6]);
+            System.out.println("Rebotes AVG = "+statistic[7]);
+            System.out.println("Rebotes MIN "+statistic[8]);
+            System.out.println("Rebotes MAX = "+statistic[9]+System.lineSeparator());
         }
 
     }
